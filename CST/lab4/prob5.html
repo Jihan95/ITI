@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 5</title>
+</head>
+<body>
+    <script>
+        let r = prompt("Enter the circle radius:");
+        if (isFinite(Number(r))) {
+            let area = Math.PI * Number(r) ** 2;
+            console.log("Circle Area: " + area.toFixed(3));
+        }
+
+        let value = prompt("Enter a value to calculate the square root:");
+        if (isFinite(Number(value))) {
+            let result = Math.sqrt(Number(value));
+            console.log("the square root of " + value + " is " + result);
+        }
+        let angle = prompt("enter am angle in degrees:")
+        if (isFinite(Number(angle))) {
+            let result = Math.cos(Number(angle) * Math.PI / 180);
+            console.log("cos(" + angle + ") = "+ result);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Pics</title>
+</head>
+<style>
+    #container {
+        width: 300px;
+        height: 250px;
+        border: 1px solid rgb(93, 0, 255);
+    }
+
+    .image {
+        display: block;
+    }
+
+    #icon1 {
+        margin-top: 100px;
+    }
+
+    #icon2 {
+        margin-left: 255px;
+        margin-top: -50px;
+    }
+
+    #top {
+        margin-top: 70px;
+        margin-left: 130px;
+    }
+</style>
+
+<body>
+    <div id="container">
+        <img src="./images/icon1.gif" id="icon1" class="image">
+        <img src="./images/icon2.gif" id="icon2" class="image">
+        <img src="./images/TOP.JPG" id="top" class="image">
+    </div>
+    <br>
+    <input type="button" id="toggleBtn" value="    Go    ">
+    <input type="button" value="   Reset   " onclick="resetImages()">
+
+
+    <script>
+        let butterfly = document.getElementById("icon1");
+        let flower = document.getElementById("icon2");
+        let topImage = document.getElementById("top");
+        let interval;
+        let step = 10, step1 = 10;
+        let isRunning = false;
+    
+        function moveImages() {
+            if (interval) clearInterval(interval);
+
+            interval = setInterval(function() {
+                let marginLB = parseInt(butterfly.style.marginLeft) || 0;
+                let marginLF = parseInt(flower.style.marginLeft) || 255;
+                let marginT = parseInt(window.getComputedStyle(topImage).marginTop) || 0;
+
+                marginLB += step;
+                marginLF -= step;
+                marginT -= step1;
+
+                console.log(marginLB);
+                
+                if (marginLB >= 250 || marginLB <= 0 ) step = -step;
+
+                if (marginT >= 70 || marginT <= -150) step1 = -step1;
+
+
+                butterfly.style.marginLeft = marginLB + "px";
+                flower.style.marginLeft = marginLF + "px";
+                topImage.style.marginTop = marginT + "px";
+            }, 200);
+
+
+        }
+
+        function toggleAnimation() {
+            if (isRunning) {
+                clearInterval(interval);
+                interval = null;
+                toggleBtn.value = "    Go    ";
+            } else {
+                moveImages();
+                toggleBtn.value = "  Stop  ";
+            }
+            isRunning = !isRunning;
+        }
+
+        function resetImages() {
+            clearInterval(interval);
+            butterfly.style.marginLeft = "0px";
+            flower.style.marginLeft = "255px";
+            topImage.style.marginTop = "70px";
+        }
+
+        toggleBtn.addEventListener("click", toggleAnimation);
+    </script>
+</body>
+</html>

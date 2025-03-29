@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 1</title>
+</head>
+
+<body>
+    <script>
+        //refactoring
+        let word = prompt("Enter a word:");
+        let letter = prompt("Enter a letter:");
+        let caseSensitivity = confirm("Do you want to consider Case sensitivity?");
+        let reapeted = 0;
+        if (!caseSensitivity) {
+            word = word.toLowerCase();
+            letter = letter.toLowerCase();
+        }
+        for (let i = 0; i < word.length; i++) {
+            if (word[i] === letter) reapeted += 1;
+        }
+        console.log(letter + " repeated " + reapeted + " times")
+    </script>
+</body>
+
+</html>

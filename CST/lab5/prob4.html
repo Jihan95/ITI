@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 4</title>
+</head>
+<body>
+    <a href="./child2.html" target="_blank" onclick="openwindowandScroll()">open window</a>
+    <script>
+        function openwindowandScroll() {
+            let win = window.open("./child2.html", "", "width=200, height=200");
+            win.onload = function (){
+            let timerID = setInterval(function() {
+                win.scrollBy(0, 50);
+                if (win.scrollY + win.innerHeight > win.document.body.scrollHeight) {
+                    clearInterval(timerID);
+                    win.close();
+                }
+            }
+            ,500);
+        }
+        }
+    </script>
+</body>
+
+</html>

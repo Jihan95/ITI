@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+</head>
+
+<body>
+    <h1>Gallery</h1>
+    <hr>
+    <input type="button" value="Next" onclick="showNext()">
+    <input type="button" value="Previous" onclick="showprevious()">
+    <input type="button" value="slideshow" onclick="slideshow()">
+    <input type="button" value="Stop" onclick="stop()">
+    <br>
+    <br>
+    <img src="./images/1.jpg" alt="baby">
+    <script>
+        let myImage = document.getElementsByTagName("img");
+        const fileName = myImage[0].src.split("/").pop();
+        let imageN = Number(fileName.split(".")[0]);
+        let timerID;
+        function showNext() {
+            if (imageN < 6) {
+                imageN += 1;
+                myImage[0].src = "./images/" + imageN + ".jpg";
+            }
+        }
+        function showprevious() {
+            if (imageN <= 6 && imageN > 1) {
+                imageN -= 1
+                myImage[0].src = "./images/" + imageN + ".jpg";
+            }
+        }
+        //يوصل للاخر يرجع يكمل
+        function slideshow() {
+            timerID = setInterval(showNext, 2000);
+        }
+        function stop() {
+            clearInterval(timerID);
+        }
+
+    </script>
+</body>
+
+</html>

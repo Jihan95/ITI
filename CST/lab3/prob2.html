@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 2</title>
+</head>
+<body>
+    <script>
+        // handle 100
+        var sum = 0;
+        var input = Number(prompt("enter a valid number:"));
+        while (input !== 0 && sum < 100 && isFinite(input)) {
+            sum += Number(input);
+            input = Number(prompt("enter a valid number:"));
+        }
+        console.log("sum of entered values:" + sum)
+    </script>
+</body>
+</html>

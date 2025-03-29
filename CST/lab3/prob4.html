@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 4</title>
+</head>
+<body>
+    <script>
+        var x = Number(prompt("enter first number:"));
+        var y = Number(prompt("enter second number:"));
+        var z = Number(prompt("enter third number:"));
+        const result = isNaN(x) || isNaN(y) || isNaN(z) ? "Invalid input, please enter numbers"
+                     : (y === 0 || z === 0) ? "Division by zero is not valid"
+                     : (x % y === 0 && x % z === 0) ? x + " is divisible by " + y + ' ,' + z
+                     : (x % y === 0) ? x + " is divisible by " + y + "only"
+                     : (x % z === 0) ? x + " is divisible by " + z + "only"
+                     : x + " is not divisible by " + y + " nor " + z;
+        document.write(result);
+    </script>
+    
+</body>
+</html>

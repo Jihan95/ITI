@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 1</title>
+</head>
+<body>
+    <input type="button" name="message" value="show the message" onclick="showTheMessage()">
+    <script>
+        let message = prompt("please type a message");
+        function showTheMessage() {
+            let childWindow = open("", "ChildWindow", "width=200, height=200");
+
+            childWindow.document.write(`
+                <html>
+                <head>
+                    <title>Child Window</title>
+                </head>
+                <body>
+                    <h2 id="message"></h2>
+                </body>
+                </html>
+            `);
+            childWindow.document.close();
+
+            let i = 0;
+            let timerID = setInterval(function () {
+                if (i < message.length) {
+                    childWindow.document.getElementById("message").textContent += message[i];
+                    i++;
+                } else {
+                    setTimeout( function () {
+                        clearInterval(timerID);
+                        childWindow.close();
+                    }
+                    ,1000);
+                }
+            }, 300);
+        }
+    </script>
+</body>
+</html>

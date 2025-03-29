@@ -1,0 +1,12 @@
+* {
+    background-color: beige;
+}
+
+fieldset {
+    width: 300px;
+    margin: 200px auto;
+}
+
+legend {
+    color: green;
+}

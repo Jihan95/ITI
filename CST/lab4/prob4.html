@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 4</title>
+</head>
+<body>
+    <script>
+        let name, phoneNumber, mobileNumber, email;
+        let nameValidation, phoneNumberValidation, mobileValidation, emailValidation;
+        do {
+            name = prompt("Enter your name:");
+            nameValidation = name.match(/^[A-Za-z]+$/);
+            if (!nameValidation) {
+                alert("Invalid name, name shouldn't contain numbers or symbols");
+            }
+        } while(!nameValidation)
+
+        do {
+            phoneNumber = prompt("Enter your phone number:");
+            phoneNumberValidation = phoneNumber.match(/^[0-9]{8}$/);
+            if (!phoneNumberValidation) {
+                alert("Invalid phone number");
+            }
+        } while(!phoneNumberValidation)
+
+        do {
+            mobileNumber = prompt("Enter your mobile number:");
+            mobileValidation = mobileNumber.match(/^(010|011|012|015)[0-9]{8}$/)
+            if (!mobileValidation) {
+                alert("Invalid mobile number")
+            }
+        } while(!mobileValidation)
+        
+        do {
+            email = prompt("Enter your Email:");
+            emailValidation = email.match(/^[a-z]+@[0-9]+.com$/);
+            if (!emailValidation) {
+                alert("Invalid email address")
+            }
+        } while(!emailValidation)
+
+        let color = prompt("choose a color from (red, green, blue) and write it");
+
+        let output = "Name: "+name+"\nPhone: " + phoneNumber + "\nMobile: " + mobileNumber +"\nEmail: " + email;
+        console.log("%c" + output, "color:" + color);
+    </script>
+</body>
+</html>

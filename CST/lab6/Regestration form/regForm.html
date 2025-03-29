@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration Page</title>
+    <link rel="stylesheet" href="./styles/registerationForm.css">
+</head>
+<body>
+    <h1><u>Registration Form</u></h1>
+    <form action="welcome.html" method="get">
+        <table border="2" width="200" height="500">
+            <tr>
+                <td><label for="fs">Name</label></td>
+                <td><input type="text" name="Name" id="fs" placeholder="Enter your name" required></td>
+            </tr>
+            <tr>
+                <td><label for="mail">Email</label></td>
+                <td><input type="email" name="email" id="mail" placeholder="Enter your email" required></td> 
+            </tr>
+            <tr>
+                <td><label for="password">Password</label></td>
+                <td><input type="password" name="password" id="password" placeholder="Enter your password" required></td>
+            </tr>
+            <tr>
+                <td><label for="jt">Job Title</label></td>
+                <td><input type="text" name="jobTitle" id="jt" placeholder="Enter your Job title" required></td>
+            </tr>
+            <tr>
+                <td><label for="mobile">Mobile</label></td>
+                <td><input type="number" name="mobile" id="mobile" placeholder="Enter your mobile number" required></td>
+            </tr>
+            <tr>
+                <td><label for="address">Address</label></td>
+                <td><input type="text" name="address" id="address" placeholder="Enter your address" required></td>
+            </tr>
+            <tr>
+                <td rowspan="2"><label for="gender">Gender</label></td>
+                <td>
+                    <input type="radio" name="gender" id="female" value="male">
+                    <label for="female">Female</label>
+                </td> 
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="gender" id="male" value="male">
+                    <label for="male">Male</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Register">
+                </td>
+                <td>
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

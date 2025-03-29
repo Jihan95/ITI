@@ -1,0 +1,23 @@
+* {
+    background-color: beige;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    margin: auto;
+}
+
+textarea {
+    resize: none;
+}
+
+#Interests1 {
+    border-bottom: none;
+}
+
+#Interests2 {
+    border-top: none;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Maker</title>
+    <style>
+        .container {
+            text-align: center;
+            margin: 20px;
+            background-color: rgb(52, 211, 195);
+        }
+        .header {
+            background: linear-gradient(180deg, #02574e, #89d7cf);
+            padding: 20px;
+            color: black;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .image-container {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .image-container img {
+            width: 150px;
+            height: 120px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+        }
+        .image-container input[type="radio"] {
+            display: block;
+            margin: 10px auto;
+        }
+        .image-container input[type="radio"]:checked ~ img {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div  class="container">
+        <h1 class="header">Generate Get Well Soon Card</h1>
+        <div>
+            <label class="image-container">
+                <img src="./images/gws.jpg" alt="Image 1">
+                <input type="radio" name="image">
+            </label>
+            
+            <label class="image-container">
+                <img src="./images/gws2.jpg" alt="Image 2">
+                <input type="radio" name="image">
+            </label>
+            
+            <label class="image-container">
+                <img src="./images/gws3.jpg" alt="Image 3">
+                <input type="radio" name="image">
+            </label>
+        </div>
+        <div>
+            <label class="image-container">
+                <img src="./images/gwsf.jpg" alt="Image 4">
+                <input type="radio" name="image">
+            </label>
+    
+            <label class="image-container">
+                <img src="./images/gwsf2.jpg" alt="Image 5">
+                <input type="radio" name="image">
+            </label>
+    
+            <label class="image-container">
+                <img src="./images/gwsf3.jpg" alt="Image 6">
+                <input type="radio" name="image">
+            </label>
+        </div>
+        <h3>Add Personal message</h3>
+        <textarea name="message" id="message" cols="70" rows="5"></textarea>
+        <br>
+        <br>
+        <input type="button" value="Preview Card" onclick="preview()">
+    </div>
+    <script>
+        let radioElems = document.querySelectorAll('input[name="image"]');
+        let textArea = document.getElementById("message");
+        let source;
+        let message;
+        for (let i = 0; i < radioElems.length; i++) {
+            radioElems[i].addEventListener("change", function(e) {
+                let imgElem = radioElems[i].previousElementSibling;
+                if (imgElem && imgElem.tagName === "IMG") {
+                    source = imgElem.src;
+                }
+            })
+        }
+        textArea.addEventListener("change", function (e) {
+            message = e.target.value;
+        })
+        function preview() {
+            if (!source) {
+                alert("Please Select an image!");
+                return;
+            }
+
+            if (!message) {
+                message = "I hope You a quick recovery..";
+            }
+
+            let newWindow = window.open("", "_blank", "width=500,height=500");
+
+            newWindow.document.body.style.cssText = `
+                text-align: center;
+                padding: 20px;
+                background-color: #f0f0f0;
+                font-family: Arial, sans-serif;
+                background-color: rgb(52, 211, 195);
+            `;
+
+            let img = newWindow.document.createElement("img");
+            img.src = source;
+            img.style.width = "300px";
+            img.style.borderRadius = "10px";
+            img.style.marginBottom = "20px";
+
+            let paragraph = newWindow.document.createElement("p");
+            paragraph.textContent = message;
+            paragraph.style.fontFamily = "georgia";
+            paragraph.style.fontSize = "20px";
+            paragraph.style.color = "#333";
+            paragraph.style.fontStyle = "italic";
+
+            let button = newWindow.document.createElement("input");
+            button.type = "button";
+            button.value = "Close Preview";
+            button.onclick = function () {
+                newWindow.close();
+            }
+
+            newWindow.document.body.appendChild(img);
+            newWindow.document.body.appendChild(paragraph);
+            newWindow.document.body.appendChild(button);
+        }
+    </script>
+</body>
+</html>

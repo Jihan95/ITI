@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+</head>
+<body>
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="0">
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="1">
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="2">
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="3">
+    <br>
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="4">
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="5">
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="6">
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="7">
+    <br>
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="8">
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="9">
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="10">
+    <img src="images/Moon.gif" onclick="changeimage(this)" id="11">
+    <script>
+        let lastClickedImage = null, currentImage = null;
+        let lockBoard = false;
+        function changeimage(image) {
+            if (lockBoard || !image.src.includes("Moon.gif")) return;
+
+            let fileName = image.src.split("/").pop();
+
+            if (fileName === "Moon.gif") {
+                switch (parseInt(image.id)) {
+                    case 0:
+                    case 7:
+                        image.src = "./images/2.gif";
+                        break;
+                    case 1:
+                    case 8:
+                        image.src = "./images/6.gif";
+                        break;
+                    case 2:
+                    case 10:
+                        image.src = "./images/3.gif";
+                        break;
+                    case 3:
+                    case 9:
+                        image.src = "./images/5.gif";
+                        break;
+                    case 4:
+                    case 11:
+                        image.src = "./images/4.gif";
+                        break;
+                    case 5:
+                    case 6:
+                        image.src = "./images/1.gif";
+                        break;
+                }
+            }
+            if (lastClickedImage === null) {
+                lastClickedImage = image;
+                return
+            }
+            currentImage = image;
+            lockBoard = true;
+
+            if (lastClickedImage.src === currentImage.src) {
+                lastClickedImage = null;
+                currentImage = null;
+                lockBoard = false
+            }
+            if (checkWin()) {
+                    setTimeout(() => alert("🎉 Congratulations!!! You Won!"), 500);
+            }
+            else {
+                setTimeout(() => {
+                    lastClickedImage.src = "./images/Moon.gif";
+                    currentImage.src = "./images/Moon.gif";
+                    lastClickedImage = null;
+                    currentImage = null;
+                    lockBoard = false;
+                }, 1000);
+            }
+    }
+
+    function checkWin() {
+            for (let img of document.images) {
+                if (img.src.includes("Moon.gif")) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    
+    </script>
+</body>
+</html>

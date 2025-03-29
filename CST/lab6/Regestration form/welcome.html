@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+
+<body>
+    <div id="welcoming"></div>
+    <br>
+    <div id="warning" style="color: red;"></div>
+
+    <script>
+        function parseURL(url) {
+            let parsedData = {};
+            if (url.startsWith("?")) {
+                url = url.slice(1);
+            }
+            let pairs = url.split("&");
+            for (let pair of pairs) {
+                parsedData[key, value] = pair.split("=");
+                if(key && value !== undefined) {
+                    parsedData[key] = decodeURIComponent(value);
+                } 
+            }
+        }
+        function generateWelcomeMessage(data) {
+            
+        }
+
+        let data = location.search;
+        let browser = navigator.userAgent.toLowerCase().includes("chrome");
+        let parsedData 
+        welcomeMessage = "Welcome " + jobTitle + "/" + name + " find the following info about you\n";
+        welcomeMessage += "email: " + email + "\n" + "mobile: " + mobile + "\n";
+        welcomeMessage += "address: " + address + "\n" + "gender: " + gender;
+        document.getElementById("welcoming").innerText = welcomeMessage;
+        if (!browser) {
+            document.getElementById("warning").innerHTML = "It's recommended to use Chrome"
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 3</title>
+</head>
+<body>
+    <input type="button" value="show window" onclick="openWindow()">
+    <input type="button" value="close window" onclick="closeWindow()">
+    <input type="button" value="move window" onclick="moveWindow()">
+    <input type="button" value="stop movement" onclick="stop()">
+
+    <script>
+        let win, timerID;
+        function openWindow() {
+            win = window.open("./child.html", "_blank", "width=50, height=50");
+        }
+
+        function moveWindow() {
+            let dx = 10, dy = 10;
+            timerID = setInterval(function () {
+                let x = win.screenX, y = win.screenY;
+                if ((x > 550 && y >= 630) || (x == 0 && y == 0)) {
+                    dx = -dx;
+                    dy = -dy;
+                }
+                win.moveBy(dx, dy);
+                win.focus();
+            },50);
+        }
+
+        function closeWindow() {
+            win.close();
+        }
+
+        function stop() {
+            clearInterval(timerID);
+        }
+    </script>
+</body>
+</html>

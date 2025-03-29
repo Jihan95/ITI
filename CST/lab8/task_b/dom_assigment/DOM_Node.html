@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <style>
+        .center {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div id="header">
+            <img src="./dom.jpg" alt="hello..it rains over here:">
+        </div>
+        <div id="navigation">
+            <ul id="nav">
+                <li><strong>Memo</strong></li>
+                <li><a href="#" onclick="addImage()">Articles</a></li>
+                <li><a href="#" onclick="addImage()">Photos</a></li>
+                <li><a href="#" onclick="addImage()">About</a></li>
+                <li><a href="#" onclick="addImage()">Clients</a></li>
+                <li><a href="#" onclick="addImage()">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function addImage() {
+            let imgElem = document.getElementById("header");
+            imgElem.style["textAlign"] = 'right';
+            const clone = imgElem.cloneNode(true);
+            clone.style["textAlign"] = 'left';
+            document.body.appendChild(clone);
+        }
+    </script>
+</body>
+</html>

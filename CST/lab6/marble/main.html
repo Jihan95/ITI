@@ -1,0 +1,42 @@
+cd <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marble</title>
+</head>
+<body>
+    <img src="./images/marble1.jpg" id="1" onmouseover="stopmoving(this)" onmouseout="continueMoving()">
+    <img src="./images/marble1.jpg" id="2" onmouseover="stopmoving(this)" onmouseout="continueMoving()">
+    <img src="./images/marble1.jpg" id="3" onmouseover="stopmoving(this)" onmouseout="continueMoving()">
+    <img src="./images/marble1.jpg" id="4" onmouseover="stopmoving(this)" onmouseout="continueMoving()">
+    <img src="./images/marble1.jpg" id="5" onmouseover="stopmoving(this)" onmouseout="continueMoving()">
+    <script>
+        let current = 1;
+        let next, timerID;
+        function move() {
+            next = current + 1;
+            if (next > 5) {
+                next = 1;
+            }
+            let currentimage = document.getElementById(current);
+            let nextImage = document.getElementById(next);
+            currentimage.src = "./images/marble1.jpg";
+            nextImage.src = "./images/marble3.jpg";
+            current = next;
+        }
+        function startMoving() {
+            timerID = setInterval(move, 500);
+        }
+        function stopmoving(element) {
+            clearInterval(timerID);
+            timerID = null;
+        }
+        function continueMoving() {
+            if (!timerID) startMoving();
+        }
+        startMoving();
+    </script>
+    
+</body>
+</html>
