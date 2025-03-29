@@ -1,3 +1,3 @@
-document.addEventListener("contextmenu", function () {
-  event.preventDefault();
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
 });
