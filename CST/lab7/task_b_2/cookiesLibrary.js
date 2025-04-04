@@ -1,5 +1,5 @@
 let allCookies = document.cookie;
-let cookies = parseCookies(allCookies);
+let cookies;
 
 function parseCookies(unparsedCookies) {
     const parsedCookies = {};
@@ -12,6 +12,7 @@ function parseCookies(unparsedCookies) {
 }
 
 function getCookie(cookieName) {
+    cookies = parseCookies(allCookies);
     return cookies[cookieName];
 }
 
@@ -27,17 +28,17 @@ function setCookie(cookieName, cookieValue, expiryDate)
 }
 
 function deleteCookie(cookieName) {
-    delete cookies[cookieName];
-
     document.cookie += cookieName + "=  expires=Thu, 18 Dec 2013 12:00:00 UTC;";
 }
 
 
 function allCookieList() {
+    cookies = parseCookies(allCookies);
     return cookies;
 }
 
 function hasCookie(cookieName) {
+    cookies = parseCookies(allCookies);
     return cookies.hasOwnProperty(cookieName);
 }
 

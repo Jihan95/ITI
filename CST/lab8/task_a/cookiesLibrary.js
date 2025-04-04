@@ -60,11 +60,12 @@ function hasCookie(cookieName) {
     return cookies.hasOwnProperty(cookieName);
 }
 
-// setCookie("gender", "female")
-// console.log(allCookieList())
+// getCookie(1) // not string* 
+// getCookie('name', 'age')  //more than one argument*
 // const date = new Date('2026-03-01')
-// setCookie('age','18',date)
-// console.log(allCookieList())
-// deleteCookie('age')
-// console.log(allCookieList())
-// console.log(hasCookie('age'))
+// setCookie('age','18',date, 20) //more than three argument
+// console.log(allCookieList('name')) //passing an argument
+// deleteCookie('age', 5) //passing more than one argument
+// deleteCookie(5) //passing non string object)
+// console.log(hasCookie('age' , 5)) //passing more than one argument
+console.log(hasCookie(5)) //passing a non string key

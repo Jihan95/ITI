@@ -18,7 +18,7 @@ function confirmSubmission() {
 function customEvent() {
   let myEvent = new Event("custEvent");
   let inputFields = document.getElementsByClassName("inputField");
-  console.log(inputFields);
+
 
   document.addEventListener("custEvent", function () {
     alert("you have not entered any data");
