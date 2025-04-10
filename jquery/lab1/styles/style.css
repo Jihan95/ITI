@@ -25,6 +25,7 @@ div.btn input{
     width: 75px;
     display: inline-block;
     cursor: pointer;
+    /* position: absolute; */
 }
 
 .flex-images {

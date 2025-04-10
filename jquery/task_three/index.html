@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+</head>
+<body>
+    <h1>Dropples</h1>
+    <hr>
+    <img src="3.JPG" alt="" class="black">
+    <div style="background-color: yellow; display: inline-block">
+        <img src="2.jpg" alt="" width="100px" class="rabbit">
+        <p style="text-align: center;">Drag Me</p>
+    </div>
+    <br>
+    
+
+
+    <script>
+      
+        $(".rabbit").draggable();
+        $('.rabbit').mouseenter(function(){
+            $(this).effect('shake')
+            
+        })
+
+        $(".black").droppable(
+            {
+                drop : function () {
+                    $(".rabbit").hide();
+
+                }
+            }
+        )
+
+   
+</script>
+</body>
+</html>
