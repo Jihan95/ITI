@@ -1,8 +1,9 @@
 div{
-    border: 2px solid;
-    text-align: center;
-    background-color: red;
     width: 100px;
     height: 50px;
-    margin: 10px;
+    background: Red;
+    margin: 0;
+    text-align: center;
+    border: 2px solid black;
+    vertical-align: middle;
 }
