@@ -46,12 +46,3 @@
 
       global.$c = $c;
 })(window);
-
-$c.set('user', 'Jihan');
-console.log($c.get('user'));
-console.log($c.has('user'));
-$c.delete('user');
-console.log($c.has('user'));
-
-const myCookies = $c.noConflict();
-console.log(myCookies.get('user'));
