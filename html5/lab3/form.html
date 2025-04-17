@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        #container {
+            border: 2px solid;
+            border-radius: 20px;
+            width: 400px;
+            height: 250px;
+        }
+        h3, input, button, span {
+            position: relative;
+            left: 25px;
+        }
+        span {
+            font-size: small;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        input:valid {
+            border: 2px solid blue;
+            border-width: 5px;
+        }
+        input:invalid {
+        border: 2px solid red;
+
+        }
+    </style>
+</head>
+<body>
+    <section id="container">
+        <h3>Change E-mail Address</h3>
+        <input type="text" placeholder="Username" required pattern="[A-Za-z]+">
+        <br>
+        <span>The required user name is a serial of alphabitical characters</span>
+        <br>
+        <br>
+        <input type="text" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <br>
+        <span>The required email shall not contain special characters except '@'</span>
+        <br>
+        <br>
+        <button>Change</button>
+    </section>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <style> 
+
+        input#range{
+            width: 300px;
+        }
+        
+        input.range {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <video src="./video/frozen.mp4" controls width="400px" height="200px" poster="image/frozen.jpg"></video>
+    <br>
+    <input type="range" id="range">
+    <span id="current-time">00:00</span> 
+    <span>/</span>
+    <span>1:50</span>
+    <br>
+    <button width="50px" id="play">Play</button>
+    <button width="50px" id="stop">Stop</button>
+    <button width="50px" id="playBack"><<</button>
+    <button width="50px" id="playBackSlow"><</button>
+    <button width="50px" id="playForward">></button>
+    <button width="50px" id="playForwardSlow">>></button>
+    <button width="50px" id="mute">Mute</button>
+    <br>
+    <label for="volume">volume</label>
+    <input type="range" class="range" min="0" max="1" value="0" step="0.25">
+    <br>
+    <label for="speed">Speed</label>
+    <input type="range" class="range" id="speed" value="1">
+
+    <script>
+        const video = document.getElementsByTagName("video")[0];
+        const playRange = document.getElementById("range");
+        const playButton = document.getElementById("play");
+        const stopButton = document.getElementById("stop");
+        const playBackButton = document.getElementById("playBack");
+        const playBackSlowButton = document.getElementById("playBackSlow");
+        const playForwardButton = document.getElementById("playForward");
+        const playForwardSlowButton = document.getElementById("playForwardSlow");
+        const volumeRange = document.getElementsByClassName("range")[0];
+        const speedRange = document.getElementsByClassName("range")[1];
+        const muteButton = document.getElementById("mute");
+        const current = document.getElementById("current-time");
+
+        playButton.addEventListener("click", () => {
+            video.play();
+        })
+
+        stopButton.addEventListener("click", () => {
+            video.pause();
+        })
+
+        playBackButton.addEventListener("click", () => {
+            video.currentTime = Math.max(0, video.currentTime - 5);
+        })
+
+        playBackSlowButton.addEventListener("click", () => {
+            video.currentTime = Math.max(0, video.currentTime - 10);
+        })
+
+        playForwardButton.addEventListener("click", () => {
+            video.currentTime += 5
+        })
+
+        playForwardSlowButton.addEventListener("click", () => {
+            video.currentTime += 10;
+        })
+
+        volumeRange.addEventListener("input", () => {
+            video.volume = volumeRange.value;
+        })
+
+        speedRange.addEventListener("input", () => {
+            video.playbackRate = speedRange.value;
+        })
+
+        muteButton.addEventListener("click", () => {
+            if (muteButton.innerText=="Mute") {
+                video.muted = true;
+                muteButton.innerText="Unmute";
+            } else {
+                video.muted = false;
+                muteButton.innerText="Mute";
+            }
+        });
+
+        video.addEventListener("timeupdate", () => {
+            let time = video.currentTime;
+            let formatted = formatTime(time);
+            current.innerText = formatted;
+        })
+
+        function formatTime(timeInSeconds) {
+            const minutes = Math.floor(timeInSeconds / 60);
+            const seconds = Math.floor(timeInSeconds % 60);
+
+            const paddedMinutes = String(minutes).padStart(2, '0');
+            const paddedSeconds = String(seconds).padStart(2, '0');
+
+            return `${paddedMinutes}:${paddedSeconds}`;
+        }
+
+        video.addEventListener("loadedmetadata", () => {
+            playRange.max = video.duration;
+        })
+
+        video.addEventListener("timeupdate", () => {
+            playRange.value = video.currentTime;
+        })
+
+        playRange.addEventListener("input", () => {
+            video.currentTime = playRange.value;
+            current.innerText = formatTime(playRange.value);
+        })
+
+        document.addEventListener("load", () => {
+            playRange.value = 0;
+        })
+    </script>
+</body>
+</html>

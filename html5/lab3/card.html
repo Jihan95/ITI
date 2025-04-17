@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #heart {
+            position: relative;
+            top: 60px;
+            left: 50px;
+            width: 100px;
+            height: 90px;
+            transform: rotate(180deg);
+        }
+        #heart:before,
+        #heart:after {
+            position: absolute;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: black;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+            }
+            #heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+            }
+
+        #triangle-up {
+            position: absolute;
+            left: 80px;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 100px solid black;
+        }
+  
+        #container {
+            border: 3px solid;
+            border-color: red;
+            width: 200px;
+            height: 350px;
+            border-radius: 10px;
+        }
+
+        #top {
+            margin-left: 10px;
+            font-family: "Jihan";
+        }
+
+        #bottom {
+            position: absolute;
+            top: 310px;
+            left: 180px;
+            font-family: "Jihan";
+        }
+
+        @font-face {
+            font-family: 'Jihan';
+            src: url("./Delius/Delius-Regular.ttf") format("truetype");
+        }
+    </style>
+</head>
+<body>
+    <section id="container">
+        <p id="top">A</p>
+        <div id="heart"></div>
+        <div id="triangle-up"></div>
+        <p id="bottom">A</p>
+    </section>
+</body>
+</html>

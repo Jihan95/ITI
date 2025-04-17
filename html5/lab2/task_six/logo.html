@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Ground</title>
+</head>
+<body>
+    <canvas id="c1" width="300" height="300"></canvas>
+    <script>
+        let canvas= document.getElementById("c1");
+        let ctx =canvas.getContext("2d");
+
+        let gradient = ctx.createLinearGradient(60, 60, 240, 240);
+        gradient.addColorStop(0, '#002a80');
+        gradient.addColorStop(0.2, '#4a90e2');
+        gradient.addColorStop(1, '#ffffff');
+        ctx.beginPath();
+        ctx.arc(150, 150, 140, 0, 2 * Math.PI);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        ctx.closePath();
+
+        let gradient1 = ctx.createLinearGradient(50, 50, 240, 240);
+        gradient1.addColorStop(0, '#0055cc');
+        gradient1.addColorStop(0.2, '#4a90e2');
+        gradient1.addColorStop(1, '#002a80'); 
+        ctx.beginPath();
+        ctx.arc(150, 150, 100, 0, 2 * Math.PI);
+        ctx.fillStyle = gradient1;
+        ctx.fill();
+        ctx.closePath();
+        
+
+        ctx.font = 'bold 120px Arial';
+        ctx.fillStyle = 'white';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('J', 150, 150);
+
+    </script>
+</body>
+</html>

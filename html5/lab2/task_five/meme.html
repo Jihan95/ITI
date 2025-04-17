@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meme</title>
+  <style>
+
+    canvas {
+      border: 2px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="c1" width="500" height="500"></canvas>
+
+  <script>
+    const canvas = document.getElementById("c1");
+    const ctx = canvas.getContext("2d");
+
+    const img = new Image();
+    img.src = "./img.jpg";
+
+    img.onload = function () {
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+      const text = "When your bestie laughs at your bad decisions instead of stopping you!";
+
+      ctx.font = "15px Comic Sans MS";
+      ctx.fillStyle = "white";
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 3;
+      ctx.textAlign = "center";
+      ctx.shadowColor = "black";
+      ctx.shadowOffsetX = 3;
+      ctx.shadowOffsetY = 3;
+      ctx.shadowBlur = 8;
+
+      const x = canvas.width / 2;
+      const y = canvas.height - 40;
+
+      ctx.strokeText(text, x, y);
+      ctx.fillText(text, x, y);
+    };
+  </script>
+</body>
+</html>

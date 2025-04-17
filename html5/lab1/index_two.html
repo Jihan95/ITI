@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color</title>
+</head>
+<body>
+    <label for="red">Red</label>
+    <input type="range" id="red" min="0" max="255" name="red" value="0">
+    <br>
+    <label for="green">Green</label>
+    <input type="range" id="green" min="0" max="255" name="green" value="0">
+    <br>
+    <label for="blue">Blue</label>
+    <input type="range" id="blue" min="0" max="255" name="blue" value="0">
+    <p id="changeMe">Change the three colors above and observe my color change</p>
+
+    <script>
+        const red = document.getElementById("red");
+        const green = document.getElementById("green");
+        const blue = document.getElementById("blue");
+
+        const pElem = document.getElementById("changeMe");
+
+        function updateColor() {
+            const r = red.value;
+            const g = green.value;
+            const b = blue.value;
+            const rgbColor = `rgb(${r}, ${g}, ${b})`;
+            pElem.style.color = rgbColor;
+        }
+
+        red.addEventListener("input", updateColor);
+        green.addEventListener("input", updateColor);
+        blue.addEventListener("input", updateColor);
+    </script>
+</body>
+</html>

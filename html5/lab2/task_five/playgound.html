@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Ground</title>
+    <style>
+        canvas{
+         border: 1px solid grey;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="300" height="300"></canvas>
+    <script>
+        let canvas= document.getElementById("c1");
+        let ctx =canvas.getContext("2d");
+
+        let grad1 = ctx.createLinearGradient(150, 0, 150, canvas.height);
+        grad1.addColorStop(0, "skyblue");
+        grad1.addColorStop(0.5,"white");
+        grad1.addColorStop(0.5, "green");
+        grad1.addColorStop(1,"white");
+        ctx.fillStyle=grad1;
+        ctx.strokeStyle=grad1;
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+
+        ctx.beginPath();
+        ctx.moveTo(75, 75);
+        ctx.lineTo(200, 75);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = "2";
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.moveTo(75, 75);
+        ctx.lineTo(75, 175);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = "2";
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(200, 75);
+        ctx.lineTo(200, 175);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = "2";
+        ctx.stroke();
+    </script>
+</body>
+</html>
