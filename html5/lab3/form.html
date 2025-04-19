@@ -34,18 +34,20 @@
 </head>
 <body>
     <section id="container">
-        <h3>Change E-mail Address</h3>
-        <input type="text" placeholder="Username" required pattern="[A-Za-z]+">
-        <br>
-        <span>The required user name is a serial of alphabitical characters</span>
-        <br>
-        <br>
-        <input type="text" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-        <br>
-        <span>The required email shall not contain special characters except '@'</span>
-        <br>
-        <br>
-        <button>Change</button>
+        <form action="">
+            <h3>Change E-mail Address</h3>
+            <input type="text" placeholder="Username" pattern="[A-Za-z]+"  required>
+            <br>
+            <span>The required user name is a serial of alphabitical characters</span>
+            <br>
+            <br>
+            <input type="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <br>
+            <span>The required email shall not contain special characters except '@'</span>
+            <br>
+            <br>
+            <button type="submit">Change</button>
+        </form>
     </section>
 </body>
 </html>
