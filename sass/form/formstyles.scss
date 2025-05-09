@@ -1,0 +1,38 @@
+@mixin createLayout($noOfCols,$screenName,$breakpoint){
+    @media(min-width: $breakpoint){
+        @if $screenName==" "{
+            @for $i from 1 through $noOfCols{
+                .col-#{$i}{
+                    width:calc($i / $noOfCols)*100%;
+                }
+            }
+        }
+        @else {
+            @for $i from 1 through $noOfCols{
+                .col-#{$screenName}-#{$i}{
+                    width:calc($i / $noOfCols)*100%;  
+                }
+            }
+        }
+    }
+}
+
+@include createLayout(12, " ", 0px);
+@include createLayout(12, "sm", 576px);
+@include createLayout(12, "md", 768px);
+@include createLayout(12, "lg", 992px);
+
+* {
+    background-color: beige;
+    color: rgb(162, 23, 162);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input {
+    width: 75%;
+}

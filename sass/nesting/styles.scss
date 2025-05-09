@@ -1,0 +1,35 @@
+@import "./variables";
+
+.main {
+    h1 {
+        color: $primary;
+    }
+
+    p.main-subtitle {
+        color: $secondary;
+    }
+
+    button.main-btn {
+        background-color: $primary;
+    }
+
+    button.main-btn:hover {
+        background-color: $secondary;
+    }
+}
+
+@each $font in $fonts {
+    .font-#{$font} {
+        font-size: $font;
+    }
+}
+
+.finish-btn {
+    @media(max-width: 576px) {
+        width: 100%;
+    }
+
+    @media (min-width: 577px) and ( max-width:768px){
+        width: 50%;
+    }
+}

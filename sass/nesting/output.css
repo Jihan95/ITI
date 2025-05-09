@@ -1,0 +1,37 @@
+.main h1 {
+  color: blue;
+}
+.main p.main-subtitle {
+  color: #9c8f8f;
+}
+.main button.main-btn {
+  background-color: blue;
+}
+.main button.main-btn:hover {
+  background-color: #9c8f8f;
+}
+
+.font-14px {
+  font-size: 14px;
+}
+
+.font-16px {
+  font-size: 16px;
+}
+
+.font-18px {
+  font-size: 18px;
+}
+
+@media (max-width: 576px) {
+  .finish-btn {
+    width: 100%;
+  }
+}
+@media (min-width: 577px) and (max-width: 768px) {
+  .finish-btn {
+    width: 50%;
+  }
+}
+
+/*# sourceMappingURL=output.css.map */
