@@ -1,4 +1,4 @@
-const fileManager = require("../utilities/filesManager");
+const fileManager = require("../utils/filesManager");
 const FILE_PATH = "./data/books.json";
 
 async function getAllBooks() {
@@ -13,7 +13,7 @@ async function addBook(bookId, bookTitle) {
 
 async function deleteBook(bookId) {
   const books = await getAllBooks();
-  const index = books.findIndex((book) => book.id === bookId);
+  const index = books.findIndex((book) => parseInt(book.id) === bookId);
 
   if (index === -1) {
     throw new Error("Book not found");
@@ -26,11 +26,11 @@ async function deleteBook(bookId) {
 
 async function updateBook(bookId, newTitle) {
   const books = await getAllBooks();
-  
-   let found = false;
+
+  let found = false;
 
   const updatedBooks = books.map((book) => {
-    if (book.id === bookId) {
+    if (parseInt(book.id) === bookId) {
       found = true;
       return { ...book, bookTitle: newTitle };
     }
@@ -38,11 +38,11 @@ async function updateBook(bookId, newTitle) {
   });
 
   if (!found) {
-    throw new Error('Book not found');
+    throw new Error("Book not found");
   }
 
   await fileManager.writeJSON(FILE_PATH, updatedBooks);
-  return updatedBooks.find(book => book.id === bookId);
+  return updatedBooks.find((book) => parseInt(book.id) === bookId);
 }
 
 async function getBookById(bookId) {
